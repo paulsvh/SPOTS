@@ -20,6 +20,6 @@ class SpotsController < ApplicationController
 
     private
 
-    def spot_params #make sure to include photo
+    def spot_params #make sure to include :image
     end
 end
