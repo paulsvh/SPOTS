@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'sessions/welcome'
+  get 'sessions/new'
+  get 'sessions/create'
   resources :cities
   resources :reviews
   resources :spots
