@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
   def welcome
   end
 
@@ -10,4 +11,5 @@ class SessionsController < ApplicationController
 
   def destroy
   end
+  
 end
