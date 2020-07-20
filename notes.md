@@ -9,6 +9,7 @@ has_many :spots, through: :reviews
 :password_digest
 
 Spot Model
+belongs_to :user
 belongs_to :city
 has_many :reviews
 has_many :users, through :reviews
