@@ -4,8 +4,8 @@ class CreateSpots < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :location
       t.string :description
-      t.integer :user_id
-      t.integer :city_id
+      t.belongs_to :user, foreign_key: true
+      t.belongs_to :city, foreign_key: true
 
       t.timestamps
     end
