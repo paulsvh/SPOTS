@@ -20,6 +20,6 @@ class SpotsController < ApplicationController
 
     private
 
-    def spot_params
+    def spot_params #make sure to include photo
     end
 end
