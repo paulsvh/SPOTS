@@ -1,5 +1,6 @@
 class Spot < ApplicationRecord
     belongs_to :user
+    belongs_to :city
     has_many :reviews
     has_many :users, through: :reviews
     has_one_attached :image
