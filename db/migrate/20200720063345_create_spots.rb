@@ -4,6 +4,7 @@ class CreateSpots < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :location
       t.string :description
+      t.integer :user_id
 
       t.timestamps
     end
