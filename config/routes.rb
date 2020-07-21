@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+  get '/signup' => 'users#new'
+
 
   resources :reviews
 
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :index]
   end
 
-  resources :users, only: [:new, :show, :create]
+  resources :users, only: [:show, :create]
 
   resources :cities, only: [:show, :index] do
     resources :spots, only: [:index]

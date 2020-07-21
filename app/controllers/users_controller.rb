@@ -12,7 +12,7 @@ class UsersController < ApplicationController
             redirect_to user_path(@user)
         else
             flash[:error] = "Something didn't work..."
-            redirect_to new_user_path
+            redirect_to '/signup'
         end
     end
 
