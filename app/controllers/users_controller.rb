@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    before_action :require_login
     skip_before_action :require_login, only: [:new, :create]
 
     def new
@@ -12,6 +11,7 @@ class UsersController < ApplicationController
         if session[:user_id]
             redirect_to user_path(@user)
         else
+            flash[:error] = "Something didn't work..."
             redirect_to new_user_path
         end
     end

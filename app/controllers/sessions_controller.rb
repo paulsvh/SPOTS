@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-
+  skip_before_action :require_login
+  
   def welcome
   end
 
@@ -7,7 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by(name: params[:user][:name])
+    user = User.find_by(name: params[:user][:username])
 
     user = user.try(:authenticate, params[:user][:password])
 
