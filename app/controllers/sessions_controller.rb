@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   skip_before_action :require_login
   
-  def welcome
+  def index
   end
 
   def new

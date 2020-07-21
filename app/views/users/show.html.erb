@@ -1,1 +1,2 @@
-User individual show page
+<h1>Welcome, <%= @user.username %>!</h1> 
+<%= button_to "Sign Out", '/logout', :method => :delete %>
