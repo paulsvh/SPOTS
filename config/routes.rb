@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :creators, only: [:new] do
     resources :spots
+  end
 
   resources :spots, only: [:show, :index] do
     resources :reviews, only: [:new, :index]
