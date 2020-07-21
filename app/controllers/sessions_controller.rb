@@ -10,16 +10,13 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: params[:user][:email])
-
-    user = user.try(:authenticate, params[:user][:password])
-    flash[:error] = "Something didn't work..."
-    return redirect_to(controller: 'sessions', action: 'new') unless user
-
-    session[:user_id] = user.id
-
-    @user = user
-
-    redirect_to user_path(@user)
+    if @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
+    else
+      flash[:error] = "Something went wrong! Try again or "
+      redirect_to login_url, notice: "Nope"
+    end
   end
 
   def destroy

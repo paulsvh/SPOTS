@@ -5,3 +5,9 @@
     Password: <%= f.password_field :password %><br><br>
     <%= f.submit "Log In" %>
 <% end %>
+
+<div>
+<% if flash[:error].present? %>
+    <p class='flash-error'><%= flash[:error] %><%= link_to "Sign Up", '/signup' %></p>
+<% end %>
+</div>
