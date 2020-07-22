@@ -1,0 +1,10 @@
+<h1>All Spots:</h1>
+<ul>
+<%= @spots.each do |spot| %>
+    <li>
+        <%= link_to spot.name, spot_path(spot) %><br>
+       
+        <% end %>
+    </li>
+<% end %>
+</ul>
