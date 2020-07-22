@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       redirect_to user_path(@user)
     else
       flash[:error] = "Something went wrong! Try again or "
-      redirect_to login_url, notice: "Nope"
+      redirect_to login_url
     end
   end
 
