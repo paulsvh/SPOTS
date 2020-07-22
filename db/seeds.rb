@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-cities = City.create([{name: "Los Angeles", country: "USA"}, {name: "Seattle", country: "USA"}, {name: "London", country: "UK"}])
+cities = City.create([{name: "Los Angeles", country: "USA"}, {name: "Seattle", country: "USA"}, {name: "London", country: "UK"}, {name: "New York", country: "USA"}])
 
 
 courthouse = Spot.create(name: "West LA Courthouse", location: "West Lost Angeles", description: "Classic skate spot with rails and ledges", city: cities.first)
