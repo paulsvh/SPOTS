@@ -10,8 +10,4 @@ class ApplicationController < ActionController::Base
         redirect_to '/' unless session.include? :user_id
     end
 
-    def current_creator
-        @current_creator ||= Creator.find_by(id: session[:creator_id]) if session[:creator_id]
-    end
-
    end

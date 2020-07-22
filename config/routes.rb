@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :create] do
     resources :spots
+  end
 
   resources :cities, only: [:show, :index] do
     resources :spots, only: [:index]
