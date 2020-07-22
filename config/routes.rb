@@ -6,14 +6,13 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
 
 
-  resources :reviews
-
   resources :spots, only: [:show, :index] do
     resources :reviews, only: [:new, :index]
   end
 
   resources :users, only: [:show, :create] do
     resources :spots
+    resources :reviews
   end
 
   resources :cities, only: [:show, :index] do
