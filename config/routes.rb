@@ -8,15 +8,12 @@ Rails.application.routes.draw do
 
   resources :reviews
 
-  resources :creators, only: [:new] do
-    resources :spots
-  end
-
   resources :spots, only: [:show, :index] do
     resources :reviews, only: [:new, :index]
   end
 
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create] do
+    resources :spots
 
   resources :cities, only: [:show, :index] do
     resources :spots, only: [:index]
