@@ -50,10 +50,8 @@ ActiveRecord::Schema.define(version: 2020_07_20_194056) do
     t.string "location"
     t.string "description"
     t.integer "user_id"
-    t.integer "city_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["city_id"], name: "index_spots_on_city_id"
     t.index ["user_id"], name: "index_spots_on_user_id"
   end
 
@@ -69,6 +67,5 @@ ActiveRecord::Schema.define(version: 2020_07_20_194056) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reviews", "spots"
   add_foreign_key "reviews", "users"
-  add_foreign_key "spots", "cities"
   add_foreign_key "spots", "users"
 end
