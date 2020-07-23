@@ -1,7 +1,9 @@
 <% @spots.each do |spot| %>
     <li>
-        <%= link_to spot.name, user_spot_path(spot) %><br>
-       
+        <%= link_to spot.name, spot_path(spot) %><br>
+        <% if spot.image.attached? %>
+            <image src="<%=(url_for(spot.image))%>">
+<% end %>
     </li>
 <% end %>
 </ul>

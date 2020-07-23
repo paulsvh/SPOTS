@@ -1,3 +1,11 @@
+<div>
+<%= @spot.name %><br><br>
+<%= @spot.location %><br><br>
+<%= @spot.description %><br><br>
+Uploaded by: <%= @spot.user.username %><br><br>
+
 <% if @spot.image.attached? %>
     <image src="<%=(url_for(@spot.image))%>">
 <% end %>
+
+</div>
