@@ -1,2 +1,19 @@
-<%= f.label "Spot Photo" %>
-<%= f.file_field :image %><br>
+<%= form_for(@spot, url: user_spots_path) do |f| %>
+
+    <%= render partial: 'layouts/errors', locals: {object: @spot} %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :location %>
+    <%= f.text_field :location %><br>
+
+    <%= f.label :description %>
+    <%= f.text_field :description %><br>
+
+    <%= f.label "Spot Photo" %>
+    <%= f.file_field :image %><br>
+
+    <%= f.submit %>
+
+<% end %>

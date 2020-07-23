@@ -13,9 +13,10 @@ class SpotsController < ApplicationController
     end
 
     def create
-        @spot = current_user.spots.build(spot_params)
+        @spot = Spot.new(spot_params)
+        @spot.user = current_user
         if @spot.save
-            redirect_to user_spot_path(@spot)
+            redirect_to user_spot_path(current_user, @spot)
         else
             flash[:error] = "Something went wrong here..."
             redirect_to new_user_spot
@@ -42,6 +43,6 @@ class SpotsController < ApplicationController
     private
 
     def spot_params
-        params.require(:spot).permit(:name, :location, :description, :image, :city_id, :user_id)
+        params.require(:spot).permit(:name, :location, :description, :image, :user_id)
     end
 end
