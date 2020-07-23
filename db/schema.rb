@@ -33,13 +33,6 @@ ActiveRecord::Schema.define(version: 2020_07_20_194056) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.string "country"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "reviews", force: :cascade do |t|
     t.string "content"
     t.string "title"
