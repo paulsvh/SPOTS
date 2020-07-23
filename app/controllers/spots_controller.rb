@@ -1,9 +1,13 @@
 class SpotsController < ApplicationController
     
     def index
-        @spots = Spot.all
-    end
-
+        if params[:user_id]
+          @spots = current_user.spots
+        else
+          @spots = Spot.all
+        end
+      end
+      
     def new
         @spot = Spot.new
     end
