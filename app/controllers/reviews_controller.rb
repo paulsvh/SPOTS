@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
     def update
         @review = Review.find_by(id: params[:id])
         @review.update(review_params)
-        redirect_to spot_review_path(current_spot, @review)
+        redirect_to spot_review_path(@review.spot, @review)
     end
 
 
