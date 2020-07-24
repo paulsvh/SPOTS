@@ -18,8 +18,7 @@ class SpotsController < ApplicationController
         if @spot.save
             redirect_to user_spot_path(current_user, @spot)
         else
-            flash[:error] = "Something went wrong here..."
-            redirect_to new_user_spot
+            render :new
         end
     end
 

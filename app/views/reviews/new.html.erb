@@ -1,0 +1,13 @@
+<%= form_for(@review, url: spot_reviews_path) do |f| %>
+
+    <%= render partial: 'layouts/errors', locals: {object: @review} %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
+
+    <%= f.label :content %>
+    <%= f.text_area :content %><br>
+
+    <%= f.submit %>
+
+<% end %>

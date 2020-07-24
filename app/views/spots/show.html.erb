@@ -1,11 +1,13 @@
 <div>
 <%= @spot.name %><br><br>
-<%= @spot.location %><br><br>
+Location: <%= @spot.location %><br><br>
 <%= @spot.description %><br><br>
 Uploaded by: <%= @spot.user.username %><br><br>
 
 <% if @spot.image.attached? %>
-    <image src="<%=(url_for(@spot.image))%>">
+    <image src="<%=(url_for(@spot.image))%>"><br><br>
 <% end %>
+
+<%= link_to "Review This Spot", new_spot_review_path(@spot) %>
 
 </div>

@@ -3,7 +3,7 @@ class Spot < ApplicationRecord
     has_many :users, through: :reviews
     belongs_to :user
     has_one_attached :image
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: true
     validates :location, presence: true
 
 end

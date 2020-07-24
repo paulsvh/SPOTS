@@ -1,0 +1,7 @@
+<% if @review.spot.image.attached? %>
+    <image src="<%=(url_for(@review.spot.image))%>"><br><br>
+<% end %>
+Spot: <%= @review.spot.name %><br><br>
+Title: <%= @review.title %><br>
+By: <%= @review.user.username %><br>
+<%= @review.content %><br>
