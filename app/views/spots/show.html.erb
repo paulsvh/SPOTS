@@ -8,6 +8,29 @@ Uploaded by: <%= @spot.user.username %><br><br>
     <image src="<%=(url_for(@spot.image))%>"><br><br>
 <% end %>
 
+CURRENT REVIEWS:<br>
+--------------------
+<br>
+<% if !@spot.reviews.empty? %>
+    <% @spot.reviews.each do |review| %>
+        <%= link_to review.title, spot_review_path(@spot, review) %>,
+        written by skater:
+        <%= review.user.username %><br>
+        --------------------
+        <br><br>
+        <% end %>
+<% else %>
+    No reviews yet, be the first!
+    <br><br>
+<% end %>
+
+
 <%= link_to "Review This Spot", new_spot_review_path(@spot) %>
+<br><br>
+<%= link_to "Back To Homepage", user_path %>
+<br><br>
+
+
+
 
 </div>

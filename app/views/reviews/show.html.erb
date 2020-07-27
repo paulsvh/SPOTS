@@ -5,3 +5,6 @@ Spot: <%= @review.spot.name %><br><br>
 Title: <%= @review.title %><br>
 By: <%= @review.user.username %><br>
 <%= @review.content %><br>
+
+<%= link_to "Back to spot page", spot_path(@review.spot) %>
+

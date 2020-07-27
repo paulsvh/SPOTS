@@ -24,7 +24,6 @@ class SpotsController < ApplicationController
 
     def show
         @spot = Spot.find_by(id: params[:id])
-        @reviews = Review.where(spot_id: params[:id]).all
     end
 
     def edit
