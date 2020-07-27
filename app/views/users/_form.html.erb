@@ -1,5 +1,6 @@
 <h2>Sign Up to Find Your New Favorite Spot!</h2>
 
+<%= render partial: 'layouts/errors', locals: {object: @user} %>
 
 <%= form_for @user do |f| %>
     Username: <%= f.text_field :username %><br><br>
