@@ -1,3 +1,4 @@
+
 <div>
 <%= @spot.name %><br><br>
 Location: <%= @spot.location %><br><br>
@@ -24,6 +25,10 @@ CURRENT REVIEWS:<br>
     <br><br>
 <% end %>
 
+<% if @spot.user == current_user %>
+        <%= link_to "Edit This Spot", edit_user_spot_path(current_user, @spot) %>
+<% end %>
+<br><br>
 
 <%= link_to "Review This Spot", new_spot_review_path(@spot) %>
 <br><br>
