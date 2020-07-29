@@ -3,8 +3,11 @@
 <% end %>
 Spot: <%= @review.spot.name %><br><br>
 Title: <%= @review.title %><br>
-By: <%= @review.user.username %><br>
-<%= @review.content %><br>
-
+By: <%= @review.user.username %> on <%= @review.spot.created_at.strftime("%m/%d/%Y") %><br>
+<%= @review.content %><br><br>
+<% if @review.user == current_user %>
+        <%= link_to "Edit This Review", edit_spot_review_path(@review.spot, @review) %>
+<% end %>
+<br><br>
 <%= link_to "Back to spot page", spot_path(@review.spot) %>
 

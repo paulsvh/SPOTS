@@ -23,11 +23,14 @@ class ReviewsController < ApplicationController
 
     def show
         @review = Review.find_by(id: params[:id])
-        @reviews = Review.where(review_id: params[:id]).all
     end
 
     def edit
-        @review = review.find_by(id: params[:id])
+        @review = Review.find_by(id: params[:id])
+        if @review.user != current_user            
+            flash[:error] = "You can't edit a review you didn't create!"
+            redirect_to spot_review_path(@review.spot, @review)
+        end
     end
 
 
