@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   get '/signup' => 'users#new'
-  match 'auth/:provider/callback', to: 'sessions#facebook', as: 'facebook', via: [:get, :post]
-  match 'auth/failure', to: redirect('/'),  via: [:get, :post]
+
+  get '/auth/facebook/callback' => 'sessions#facebook'
+
   
   resources :spots, only: [:show, :index] do
     resources :reviews

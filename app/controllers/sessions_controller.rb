@@ -26,9 +26,7 @@ class SessionsController < ApplicationController
     @user = User.find_or_create_by(uid: auth['uid']) do |u|
       u.username = auth['info']['name']
       u.email = auth['info']['email']
-      u.password = auth['credentials']['token'][1..5] 
-      u.save
-      u
+      u.password = SecureRandom.hex
     end
     if session[:user_id] = @user.id
       redirect_to user_path(@user)
