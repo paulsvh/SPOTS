@@ -1,3 +1,12 @@
+<% if @spots.empty? %>
+
+<p>Hey <%= current_user.username %>, you haven't uploaded any spots yet!</p><br><br>
+<%= link_to "Browse Spots", spots_path %><br><br>
+<%= link_to "Add A Spot", new_user_spot_path(current_user) %><br><br>
+<%= link_to "Back To My Homepage", user_path(current_user) %>
+
+<% else %>
+
 <% @spots.each do |spot| %>
     <li>
         <%= link_to spot.name, spot_path(spot) %><br>
@@ -6,4 +15,6 @@
 <% end %>
     </li>
 <% end %>
-</ul>
+<% end %>
+
+
