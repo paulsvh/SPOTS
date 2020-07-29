@@ -27,7 +27,13 @@ class SpotsController < ApplicationController
     end
 
     def edit
-        @spot = Spot.find_by(id: params[:id])
+        if current_user && params[:user_id] = current_user.id
+            @spot = Spot.find_by(id: params[:id])
+        else
+            @spot = Spot.find_by(id: params[:id])
+            flash[:error] = "You can't edit a spot you didn't create!"
+            redirect_to user_spot_path(current_user, @spot)
+        end
     end
 
 
