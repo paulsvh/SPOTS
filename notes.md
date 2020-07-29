@@ -22,3 +22,5 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
+
+#PUT SKATERS YEARS_SKATING ON REVIEW HEADER OR REMOVE IT
