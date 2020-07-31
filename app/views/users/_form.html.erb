@@ -5,7 +5,6 @@
 <%= form_for @user do |f| %>
     Username: <%= f.text_field :username %><br><br>
     Email: <%= f.email_field :email %><br><br>
-    How Many Years Have You Been Skating?: <%= f.number_field :years_skating, within: 1...101 %><br><br>
     Password: <%= f.password_field :password %><br><br>
     <%= f.submit "Sign Up" %>
 <% end %>
