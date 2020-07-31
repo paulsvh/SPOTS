@@ -10,12 +10,15 @@
 
 <% @spots.each do |spot| %>
     <li>
-        <%= link_to spot.name, spot_path(spot) %><br>
+        <b><%= link_to spot.name, spot_path(spot) %></b><br>
+        <b>Where:</b> <%= spot.location %><br>
+        <i><%= spot.description %></i><br>
         <% if spot.image.attached? %>
             <image src="<%=(url_for(spot.image))%>">
-<% end %>
+<% end %><br><br>
     </li>
 <% end %>
 <% end %>
 
+<%= link_to "Back To My Homepage", user_path(current_user) %>
 

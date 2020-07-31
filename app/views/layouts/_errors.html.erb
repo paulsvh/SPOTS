@@ -1,7 +1,5 @@
-<ul>
-<% object.errors.full_messages.each do |error_message| %>
-
-    <li><%= error_message%></li>
-
+<% if !!flash[:errors] %>
+<% flash[:errors].each do |error| %>
+    <p style="color:red;"><b><%= error %></b></p>
+    <% end %>
 <% end %>
-</ul>

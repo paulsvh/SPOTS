@@ -11,7 +11,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_path(@user)
         else
-            flash[:error] = "Something went wrong here..."
+            flash[:errors] = @user.errors.full_messages
             redirect_to '/signup'
         end
     end
@@ -19,9 +19,6 @@ class UsersController < ApplicationController
    
     def show
         @user = current_user
-        if @user.nil?
-            redirect_to '/'
-        end
     end
 
     private

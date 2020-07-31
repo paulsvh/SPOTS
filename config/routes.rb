@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   
   resources :spots, only: [:show, :index] do
-    resources :reviews
+    resources :reviews, except: [:index]
   end
 
   resources :users, only: [:show, :create] do

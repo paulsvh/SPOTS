@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
      end
 
     def require_login
-        redirect_to '/' unless session.include? :user_id
+        if !session.include? :user_id
+            flash[:errors] = "You need to be logged in to do that!"
+            redirect_to '/'
+        end
     end
 
    end

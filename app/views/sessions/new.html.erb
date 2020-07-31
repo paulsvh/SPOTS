@@ -1,15 +1,9 @@
 <h1>Log In</h1>
-<%= render partial: 'layouts/errors', locals: {object: @user} %>
 
+<%= render partial: 'layouts/error' %>
 
 <%= form_for @user, url: '/login' do |f| %>
     Email: <%= f.email_field :email %><br><br>
     Password: <%= f.password_field :password %><br><br>
     <%= f.submit "Log In" %>
 <% end %>
-
-<div>
-<% if flash[:error].present? %>
-    <p class='flash-error'><%= flash[:error] %><%= link_to "Sign Up", '/signup' %></p>
-<% end %>
-</div>

@@ -2,9 +2,9 @@ class SpotsController < ApplicationController
     
     def index
         if params[:user_id]
-          @spots = current_user.spots
+          @spots = current_user.spots.order("created_at DESC")
         else
-          @spots = Spot.all
+          @spots = Spot.all.order("created_at DESC")
         end
       end
       
@@ -18,6 +18,7 @@ class SpotsController < ApplicationController
         if @spot.save
             redirect_to user_spot_path(current_user, @spot)
         else
+            flash[:errors] = @spot.errors.full_messages
             render :new
         end
     end
@@ -29,7 +30,7 @@ class SpotsController < ApplicationController
     def edit
         @spot = Spot.find_by(id: params[:id])
         if @spot.user != current_user            
-            flash[:error] = "You can't edit a spot you didn't create!"
+            flash[:errors] = "You can't edit a spot you didn't create!"
             redirect_to user_spot_path(current_user, @spot)
         end
     end
@@ -37,8 +38,12 @@ class SpotsController < ApplicationController
 
     def update
         @spot = Spot.find_by(id: params[:id])
-        @spot.update(spot_params)
-        redirect_to spot_path(@spot)
+        if @spot.update(spot_params)
+            redirect_to spot_path(@spot)
+        else
+            flash[:errors] = @spot.errors.full_messages
+            render :edit
+        end
     end
 
 

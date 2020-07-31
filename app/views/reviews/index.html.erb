@@ -1,9 +1,0 @@
-<% @reviews.each do |review| %>
-    <li>
-        <%= link_to review.title, spot_review_path(@review.spot, @review) %><br>
-        <% if review.image.attached? %>
-            <image src="<%=(url_for(review.image))%>">
-<% end %>
-    </li>
-<% end %>
-</ul>

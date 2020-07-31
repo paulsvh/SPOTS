@@ -1,10 +1,4 @@
 class ReviewsController < ApplicationController
-
-    def index
-        if params[:spot_id]
-          @reviews = current_spot.reviews
-        end
-      end
       
     def new
         @review = Review.new
@@ -17,6 +11,7 @@ class ReviewsController < ApplicationController
         if @review.save
             redirect_to spot_review_path(@review.spot, @review)
         else
+            flash[:errors] = @review.errors.full_messages
             render :new
         end
     end
@@ -28,7 +23,7 @@ class ReviewsController < ApplicationController
     def edit
         @review = Review.find_by(id: params[:id])
         if @review.user != current_user            
-            flash[:error] = "You can't edit a review you didn't create!"
+            flash[:errors] = "You can't edit a review you didn't create!"
             redirect_to spot_review_path(@review.spot, @review)
         end
     end
@@ -36,8 +31,12 @@ class ReviewsController < ApplicationController
 
     def update
         @review = Review.find_by(id: params[:id])
-        @review.update(review_params)
-        redirect_to spot_review_path(@review.spot, @review)
+        if @review.update(review_params)
+            redirect_to spot_review_path(@review.spot, @review)
+        else
+            flash[:errors] = @review.errors.full_messages
+            render :edit
+        end
     end
 
 

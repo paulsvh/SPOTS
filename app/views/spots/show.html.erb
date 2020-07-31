@@ -1,13 +1,14 @@
-
 <div>
-<%= @spot.name %><br><br>
+<h3><%= @spot.name %></h3>
 Location: <%= @spot.location %><br><br>
-<%= @spot.description %><br><br>
+<i>"<%= @spot.description %>"</i><br><br>
 Uploaded by: <%= @spot.user.username %> on <%= @spot.created_at.strftime("%m/%d/%Y") %><br><br>
 
 <% if @spot.image.attached? %>
     <image src="<%=(url_for(@spot.image))%>"><br><br>
 <% end %>
+
+</div>
 
 CURRENT REVIEWS:<br>
 --------------------
@@ -16,7 +17,7 @@ CURRENT REVIEWS:<br>
     <% @spot.reviews.each do |review| %>
         <%= link_to review.title, spot_review_path(@spot, review) %>,
         written by skater:
-        <%= review.user.username %> on <%= @spot.created_at.strftime("%m/%d/%Y") %>
+        <%= review.user.username %> on <%= review.created_at.strftime("%m/%d/%Y") %>
         <br>
         --------------------
         <br><br>
@@ -37,8 +38,3 @@ CURRENT REVIEWS:<br>
 <br><br>
 <%= link_to "Back To My Homepage", user_path %>
 <br><br>
-
-
-
-
-</div>
