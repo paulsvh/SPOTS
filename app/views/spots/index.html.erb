@@ -10,7 +10,7 @@
 
 <% @spots.each do |spot| %>
     <li>
-        <b><%= link_to spot.name, spot_path(spot) %></b><br>
+        <b><%= link_to spot.name, spot_path(spot) %></b> <i> added on <%= spot.created_at.strftime("%m/%d/%Y") %></i><br>
         <b>Where:</b> <%= spot.location %><br>
         <i><%= spot.description %></i><br>
         <% if spot.image.attached? %>
