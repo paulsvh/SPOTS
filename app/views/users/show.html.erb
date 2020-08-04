@@ -1,5 +1,5 @@
-<h1>Welcome, <%= @user.username %>!</h1> 
-<%= button_to "Sign Out", '/logout', :method => :delete %><br><br>
+<h1>Welcome, <%= @user.username %>!</h1> <br>
 <%= link_to "Browse Spots", spots_path %><br><br>
 <%= link_to "Add A Spot", new_user_spot_path(@user) %><br><br>
 <%= link_to "My Uploaded Spots", user_spots_path(@user) %><br><br>
+<%= button_to "Sign Out", '/logout', :method => :delete %>

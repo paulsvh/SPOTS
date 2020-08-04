@@ -11,9 +11,24 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+  <div class="wrapper">
+    <% flash.keys.each do |type| %>
+      <div style="position: relative;
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: 0.25rem;
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;">
+        <%= flash[type] %>
+        
+      </div>
+    <% end %>
     <%= yield %>
 
 

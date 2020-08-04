@@ -1,6 +1,3 @@
-<%= render partial: 'layouts/error' %>
-
-
 <% if @review.spot.image.attached? %>
     <image src="<%=(url_for(@review.spot.image))%>"><br><br>
 <% end %>

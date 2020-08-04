@@ -1,7 +1,5 @@
 <%= form_for(@spot, url: user_spots_path) do |f| %>
 
-    <%= render partial: 'layouts/errors' %>
-
     <%= f.label :name %>
     <%= f.text_field :name %><br>
 
