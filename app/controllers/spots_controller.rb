@@ -18,17 +18,17 @@ class SpotsController < ApplicationController
         if @spot.save
             redirect_to user_spot_path(current_user, @spot)
         else
-            flash[:errors] = @spot.errors.full_messages
+            spot_errors
             render :new
         end
     end
 
     def show
-        @spot = Spot.find_by(id: params[:id])
+        find_spot
     end
 
     def edit
-        @spot = Spot.find_by(id: params[:id])
+        find_spot
         if @spot.user != current_user            
             flash[:errors] = "You can't edit a spot you didn't create!"
             redirect_to user_spot_path(current_user, @spot)
@@ -37,11 +37,11 @@ class SpotsController < ApplicationController
 
 
     def update
-        @spot = Spot.find_by(id: params[:id])
+        find_spot
         if @spot.update(spot_params)
             redirect_to spot_path(@spot)
         else
-            flash[:errors] = @spot.errors.full_messages
+            spot_errors
             render :edit
         end
     end
@@ -52,4 +52,13 @@ class SpotsController < ApplicationController
     def spot_params
         params.require(:spot).permit(:name, :location, :description, :image, :user_id)
     end
+
+    def spot_errors
+        flash[:errors] = @spot.errors.full_messages
+    end
+
+    def find_spot
+        @spot = Spot.find_by(id: params[:id])
+    end
+
 end
