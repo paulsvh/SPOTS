@@ -18,8 +18,9 @@ Specs:
     -conditionally only render if errors exist
 Confirm:
 -MAKE IT DRYYYYYYYYY
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
 
+rails s -b 'ssl://localhost:3000?key=localhost.key&cert=localhost.crt'
