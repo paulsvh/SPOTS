@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 2020_07_31_080359) do
   end
 
   create_table "spots", force: :cascade do |t|
+    t.string "name"
+    t.string "location"
+    t.string "description"
     t.text "name"
     t.text "location"
     t.text "description"
