@@ -1,1 +1,16 @@
 @import "bootstrap/scss/bootstrap";
+
+.title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #a2a3ddb0;
+  
+    h1 {
+      margin: 40;
+      font-size: 80px;
+      text-shadow: 2px 2px #484bd4;
+    }
+  }
+  
